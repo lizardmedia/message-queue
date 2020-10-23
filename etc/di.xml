@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Bartosz Kubicki <bartosz.kubicki@lizardmedia.pl>
+ * @copyright Copyright (C) 2020 Lizard Media (http://lizardmedia.pl)
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- API section -->
+    <preference for="LizardMedia\MessageQueue\Api\Queue\Consumer\EnvelopeCallbackFactoryInterface"
+                type="LizardMedia\MessageQueue\Queue\Consumer\EnvelopeCallbackFactory"/>
+    <preference for="LizardMedia\MessageQueue\Api\Envelope\RetryLimitOverflowResolverInterface"
+                type="LizardMedia\MessageQueue\Envelope\RetryLimitOverflowResolver"/>
+    <!-- API section -->
+
+    <!-- Console command section -->
+    <type name="Magento\Framework\Console\CommandListInterface">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="lm:queue:consumers:poison" xsi:type="object">LizardMedia\MessageQueue\Console\Command\PutPoisonPillCommand</item>
+            </argument>
+        </arguments>
+    </type>
+    <!-- End of console command section -->
+</config>
