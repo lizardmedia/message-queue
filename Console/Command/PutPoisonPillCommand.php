@@ -51,6 +51,8 @@ class PutPoisonPillCommand extends Command
     }
 
     /**
+     * To make poison pill stop your consumers you have to run them with param `--max-messages`.
+     *
      * @param InputInterface $input
      * @param OutputInterface $output
      * @return int

@@ -52,9 +52,7 @@ bin/magento setup:upgrade
 
 ## Usage
 
-Just install module and investigate topology created. Play around by 
-publishing messages (take a look at console commands) and observe how messages are handled. Every consumer handler
-has a sleep function inside to make sure that message processing is visible in rabbitmq admin panel
+To make poison pill stop your consumers you have to run them with param `--max-messages`.
 
 ## Contributing
 
